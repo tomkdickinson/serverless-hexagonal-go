@@ -1,7 +1,7 @@
 package memory
 
 import (
-	"github.com/tomkdickinson/serverless-go-template/internal/blog"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/blog"
 	"time"
 )
 

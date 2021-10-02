@@ -1,14 +1,12 @@
-package api
+package lambda
 
 import (
 	"context"
 	"encoding/json"
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/tomkdickinson/serverless-go-template/internal/blog"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/blog"
 	"net/http"
-	"os"
 )
 
 type Response events.APIGatewayProxyResponse
@@ -71,15 +69,4 @@ func (h BlogPostHandlers) ListPosts(ctx context.Context) (Response, error) {
 			"Content-Type": "application/json",
 		},
 	}, nil
-}
-
-func withLogger(ctx context.Context, request events.APIGatewayProxyRequest) context.Context {
-	logger := zerolog.New(os.Stdout).
-		With().
-		Timestamp().
-		Str("path", request.Path).
-		Str("method", request.HTTPMethod).
-		Str("request_id", request.RequestContext.RequestID).
-		Logger()
-	return logger.WithContext(ctx)
 }
