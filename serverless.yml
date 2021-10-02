@@ -1,0 +1,31 @@
+service: serverless-go-template
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: go1.x
+  lambdaHashingVersion: 20201221
+
+package:
+  patterns:
+    - '!./**'
+    - ./bin/**
+
+functions:
+  get-post:
+    handler: bin/get-entry
+    events:
+      - httpApi:
+          path: /posts/{slug}
+          method: get
+          request:
+            parameters:
+              paths:
+                slug: true
+  list-posts:
+    handler: bin/list-entries
+    events:
+      - httpApi:
+          path: /posts
+          method: get
