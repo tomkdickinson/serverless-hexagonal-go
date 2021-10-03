@@ -1,6 +1,6 @@
-package api
+package lambda
 
-import "github.com/tomkdickinson/serverless-go-template/internal/blog"
+import "github.com/tomkdickinson/serverless-hexagonal-go/internal/blog"
 
 type EntryPayload struct {
 	Title   string `json:"title"`

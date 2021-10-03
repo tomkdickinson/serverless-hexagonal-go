@@ -5,8 +5,8 @@ wire:
 
 build: gomodgen wire
 	export GO111MODULE=on
-	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/get-entry github.com/tomkdickinson/serverless-go-template/cmd/get-entry
-	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/list-entries github.com/tomkdickinson/serverless-go-template/cmd/list-entries
+	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/get-entry github.com/tomkdickinson/serverless-hexagonal-go/cmd/get-entry
+	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/list-entries github.com/tomkdickinson/serverless-hexagonal-go/cmd/list-entries
 
 clean:
 	rm -rf ./bin ./vendor go.sum
@@ -16,4 +16,4 @@ deploy: clean build
 
 gomodgen:
 	chmod u+x gomod.sh
-	./gomod.sh
+	./gomod.sh $(MODULE)

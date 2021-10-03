@@ -5,15 +5,15 @@ package main
 
 import (
 	"github.com/google/wire"
-	"github.com/tomkdickinson/serverless-go-template/internal/api"
-	"github.com/tomkdickinson/serverless-go-template/internal/blog"
-	"github.com/tomkdickinson/serverless-go-template/internal/storage/memory"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/blog"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/lambda"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/storage/memory"
 )
 
-func setupHandler() api.BlogPostHandlers {
+func setupHandler() lambda.BlogPostHandlers {
 	panic(wire.Build(
 		memory.ProvideRepository,
 		blog.ProvideService,
-		api.ProvideBlogPostHandlers,
+		lambda.ProvideBlogPostHandlers,
 	))
 }

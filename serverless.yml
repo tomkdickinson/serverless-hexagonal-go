@@ -1,6 +1,7 @@
-service: serverless-go-template
+service: serverless-hexagonal-go
 
 frameworkVersion: '2'
+configValidationMode: error
 
 provider:
   name: aws
@@ -13,17 +14,14 @@ package:
     - ./bin/**
 
 functions:
-  get-post:
+  get-entry:
     handler: bin/get-entry
     events:
       - httpApi:
+          method: GET
           path: /posts/{slug}
-          method: get
-          request:
-            parameters:
-              paths:
-                slug: true
-  list-posts:
+
+  list-entries:
     handler: bin/list-entries
     events:
       - httpApi:

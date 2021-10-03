@@ -3,7 +3,7 @@ package memory
 import (
 	"context"
 	"errors"
-	"github.com/tomkdickinson/serverless-go-template/internal/blog"
+	"github.com/tomkdickinson/serverless-hexagonal-go/internal/blog"
 	"sort"
 	"time"
 )
