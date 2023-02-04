@@ -9,7 +9,7 @@ build: gomodgen wire
 	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/list-entries github.com/tomkdickinson/serverless-hexagonal-go/cmd/list-entries
 
 clean:
-	rm -rf ./bin ./vendor go.sum
+	rm -rf ./bin/**
 
 deploy: clean build
 	sls deploy --verbose
