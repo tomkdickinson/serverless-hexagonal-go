@@ -1,6 +1,6 @@
 service: serverless-hexagonal-go
 
-frameworkVersion: '2'
+frameworkVersion: '3'
 configValidationMode: error
 
 provider:
